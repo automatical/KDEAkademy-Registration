@@ -1,0 +1,31 @@
+{% extends "base.twig" %}
+
+{% block title %}- Dashboard{% endblock %}
+
+{% block content %}
+
+    {% if saved == true %}
+        <div class="alert alert-success" role="alert">Profile Saved</div>
+    {% endif %}
+
+    {% if newuser %}
+        <div class="alert alert-info" role="alert">
+            Welcome! please fill out your profile below.
+        </div>
+    {% endif %}
+
+    <h1>My Profile</h1>
+
+    <form method="post">
+    {% for key, collection in form %}
+    	{% if key == 2 %}
+    	<div class="col-md-12 profile-form">
+    	{% else %}
+    	<div class="col-md-6 profile-form">
+    	{% endif %}
+    		{{ collection | raw }}
+    	</div>
+    {% endfor %}
+    </form>
+
+{% endblock %}

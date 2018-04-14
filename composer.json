@@ -1,0 +1,22 @@
+{
+    "name": "kde/akademy-registration",
+    "description": "This repository contains a simple registration system developed for KDE Akademy.",
+    "license": "BSD-3-Clause",
+    "type": "project",
+    "keywords": ["kde", "akadeny", "registration"],
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/src",
+            "Entity\\": "app/src/Entities",
+            "Entity\\Mapper\\": "app/src/Mntities/mappers"
+        }
+    },
+    "require": {
+        "slim/slim": "^3.0",
+        "slim/twig-view": "^2.0",
+        "slim/flash": "^0.1.0",
+        "monolog/monolog": "^1.13",
+        "vlucas/spot2": "~2.0",
+        "cilex/cilex": "^2.0"
+    }
+}

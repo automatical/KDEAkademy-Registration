@@ -1,0 +1,6 @@
+<label>{{ form.field }}</label>
+<select type="text" name="{{form.field}}" class="form-control">
+	{% for item in form.data.values %}
+        <option value="{{ item }}" {% if values[form.field] == item %}selected{% endif %}>{{ item }}</option>
+    {% endfor %}
+</select>

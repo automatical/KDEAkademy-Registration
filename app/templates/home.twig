@@ -1,0 +1,59 @@
+{% extends "base.twig" %}
+
+{% block title %}- Dashboard{% endblock %}
+
+{% block content %}
+
+	{% if accessdenied %}
+		<div class="alert alert-danger" role="alert">Access Denied</div>
+	{% endif %}	
+
+	{% if registrationcancelled %}
+		<div class="alert alert-danger" role="alert">We are sorry to hear that you can no longer attend.</div>
+	{% endif %}	
+
+	{% if profilesuccess %}
+		<div class="alert alert-success" role="alert">Profile Saved</div>
+	{% endif %}	
+
+	{% if registrationsuccess %}
+		<div class="alert alert-success" role="alert">Registered</div>
+	{% endif %}	
+
+	<h1>My Events</h1>
+
+	<br />
+
+	{% for conference in conferences %}
+		<div class="col-md-12 well">
+			<div class="col-md-9">
+				<h1>{{conference.name}}</h1>
+				<h2>{{conference.venue}}</h2>
+				<p>{{conference.start_date}} - {{conference.end_date}}</p>
+			</div>
+			<div class="col-md-3">
+				<br />
+				{% if isRegistered[conference.id] %}
+					<a href="/register/{{conference.slug}}" class="btn btn-large btn-success">Update Registration</a>
+					<p>&nbsp;</p>
+					<a href="/cancel/{{conference.slug}}" class="btn btn-large btn-danger">I can no longer attend</a>
+				{% else %}
+					<a href="/register/{{conference.slug}}" class="btn btn-large btn-success">Registration</a>
+				{% endif %}
+				<br /><br />
+				{% if isAdmin[conference.id] %}
+				<a href="/stats/{{conference.slug}}" class="btn btn-large btn-info">Stats</a>
+				<br /><br />
+				{% endif %}
+				<a href="{{conference.website}}" target="_blank" class="btn btn-large btn-primary">Website</a>
+			</div>
+
+			{% if isRegistered[conference.id] %}
+			<div class="col-md-12">
+				<br />
+				<div class="alert alert-success" role="alert">You are registered to attend <strong>{{conference.name}}</strong></div>
+			</div>
+			{% endif %}
+		</div>
+	{% endfor %}
+{% endblock %}

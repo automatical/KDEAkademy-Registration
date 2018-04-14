@@ -1,0 +1,41 @@
+<?php
+return [
+    'settings' => [
+        // Slim Settings
+        'determineRouteBeforeAppMiddleware' => false,
+        'displayErrorDetails' => false,
+
+        // View settings
+        'view' => [
+            'template_path' => __DIR__ . '/templates',
+            'twig' => [
+                'cache' => __DIR__ . '/../cache/twig',
+                'debug' => true,
+                'auto_reload' => true,
+            ],
+        ],
+
+        // monolog settings
+        'logger' => [
+            'name' => 'app',
+            'path' => __DIR__ . '/../log/app.log',
+        ],
+
+        // login manager
+        'login' => [
+            'salt' => 'CHANGEME',
+            'ldap_host' => "127.0.0.1",
+            'ldap_port' => '389',
+            'base_dn' => "ou=people,dc=kde,dc=org",
+            'override' => false
+        ],
+
+        // database configuration
+        'database' => [
+            'hostname' => 'localhost',
+            'username' => 'events',
+            'password' => 'CHANGEME',
+            'db' => 'events'
+        ]
+    ],
+];

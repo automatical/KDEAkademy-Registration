@@ -1,0 +1,29 @@
+{% extends "base.twig" %}
+
+{% block title %}- Dashboard{% endblock %}
+
+{% block content %}
+
+    <div class="col-md-12">
+        <h1>Register</h1>
+        <h3>{{conference.name}}</h3>
+        <p>{{conference.start_date}} - {{conference.end_date}}</p>
+    </div>
+
+    {% if conference.description %}
+        {{ conference.description | raw | nl2br }}
+    {% endif %}
+
+    <form method="post">
+    {% for key, collection in form %}
+        <div class="col-md-12 profile-form">
+            {{ collection | raw }}
+        </div>
+    {% endfor %}
+    </form>
+
+    {% if conference.notes %}
+        {{ conference.notes | raw | nl2br }}
+    {% endif %}
+
+{% endblock %}

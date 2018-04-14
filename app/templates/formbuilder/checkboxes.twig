@@ -1,0 +1,6 @@
+<label>{{ form.field }}</label>
+<br />
+{% for item in form.data.values %}
+    <label class="check"><input type="checkbox" name="{{ form.field }}[{{ item }}]" {% if values[form.field][item] == "on" %}checked{% endif %}> {{ item }}</label>
+{% endfor %}
+<br />

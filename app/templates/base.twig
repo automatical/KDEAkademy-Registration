@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+
+        {% block head %}
+          <meta charset="utf-8"/>
+          <title>KDE Events {% block title %}{% endblock %}</title>
+
+          <link rel="stylesheet" href="/css/style.css?rev=00000001">
+
+          <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+          <link rel="stylesheet" href="/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css">
+        {% endblock %}
+        <!-- Piwik -->
+        <script type="text/javascript">
+          var _paq = _paq || [];
+          /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+          _paq.push(['trackPageView']);
+          _paq.push(['enableLinkTracking']);
+          (function() {
+            var u="//stats.kde.org/";
+            _paq.push(['setTrackerUrl', u+'piwik.php']);
+            _paq.push(['setSiteId', '21']);
+            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+            g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+          })();
+        </script>
+        <!-- End Piwik Code -->
+    </head>
+    <body>
+    	<!-- Static navbar -->
+      <nav class="navbar navbar-default navbar-static-top">
+        <div class="container">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="/">
+            	<img src="https://www.kde.org/stuff/clipart/klogo-official-lineart_detailed-3000x3000.png" class="header-logo" style="display: inline-block; margin-top: -5px;">
+            	Events
+            </a>
+          </div>
+          {% if isLoggedIn == true %}
+          <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li {% if currentPage == 'home' %}class="active"{% endif %}><a href="/">Events</a></li>
+              <li {% if currentPage == 'profile' %}class="active"{% endif %}><a href="/profile">Profile</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="/logout">Logout</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+          {% endif %}
+        </div>
+      </nav>
+
+      <div class="container">
+
+        <div id="content">{% block content %}{% endblock %}</div>
+
+      </div> <!-- /container -->
+
+      <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+    	<script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+      <script src="/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+
+      <script src="/js/main.js?rev=000000003"></script>
+
+      <script type="text/javascript" src="https://www.kde.org/media/javascripts/piwikbanner.js"></script>
+    </body>
+</html>

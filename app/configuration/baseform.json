@@ -1,0 +1,88 @@
+{
+	"forms": [
+		{
+		  "field": "Email",
+		  "type": "text"
+		},
+		{
+		  "field": "Full Name",
+		  "type": "text"
+		}, 
+		{
+		  "field": "Irc Nick",
+		  "type": "text"
+		},
+		{
+		  "field": "Country",
+		  "type": "dropdown",
+		  "data": "CountryList"
+		},
+		{
+		  "field": "Primary Role in KDE",
+		  "type": "dropdown",
+		  "data": {
+		    "type": "list",
+		    "values": [
+		      "Artist",
+		      "Community",
+		      "Developer",
+		      "Promo",
+		      "Translator",
+		      "User",
+		      "Other"
+		    ]
+		  }
+		},
+		{
+		  "field": "Other Roles in KDE",
+		  "type": "checkboxes",
+		  "data": {
+		    "type": "list",
+		    "values": [
+		      "Artist",
+		      "Community",
+		      "Developer",
+		      "Promo",
+		      "Translator",
+		      "User",
+		      "Other"
+		    ]
+		  }
+		},
+		{
+		  "field": "Emergency Contact Information",
+		  "type": "textarea",
+		  "hint": "Someone we can contact at any time in case of an emergency that involves you. Please provide as much information as you can such as name, phone number including country code, address and the person's relationship to you."
+		}, 
+		{
+		  "field": "Dietary requirements and allergies",
+		  "type": "checkboxes",
+		  "data": {
+		    "type": "list",
+		    "values": [
+		      "Gluten Free",
+		      "Lactose Free",
+		      "Nut Free",
+		      "Vegan",
+		      "Vegetarian",
+		      "Other"
+		    ]
+		  }
+		},
+		{
+		  "field": "Other dietary requirements",
+		  "type": "textarea",
+		  "hint": "Please tell us of any other dietary requirements you have.",
+		  "dependency": {
+		    "field": "Dietary requirements and allergies",
+		    "value": "Other"
+		  }
+		},
+		{
+		  "field": "Health or allergy information",
+		  "type": "textarea",
+		  "hint": "Please tell us of any health problems or allergies."
+		}
+	],
+	"submitlabel": "Save Profile"
+}

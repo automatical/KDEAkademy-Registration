@@ -1,0 +1,22 @@
+{
+  "name": "registration.akademy.kde.org",
+  "authors": [
+    "Kenny Coyle <kcoyle@kde.org>"
+  ],
+  "description": "This repository contains a simple registration system developed for KDE Akademy.",
+  "main": "public/index.php",
+  "keywords": [
+    "KDE",
+    "Akademy"
+  ],
+  "license": "BSD",
+  "homepage": "http://akademy.kde.org/",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

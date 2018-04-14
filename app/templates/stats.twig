@@ -1,0 +1,34 @@
+{% extends "base.twig" %}
+
+{% block title %}- Dashboard{% endblock %}
+
+{% block content %}
+
+    <div class="col-md-12">
+        <h1>Register</h1>
+        <h3>{{conference.name}}</h3>
+        <p>{{conference.start_date}} - {{conference.end_date}}</p>
+    </div>
+
+    <h3>Total Registrations: {{registrationcount}}</h3>
+
+    <br />
+    <p>Tabular snapshot below, more information/analysis available on request.</p>
+
+    <br />
+    <table class="table table-striped table-hover">
+        <tr>
+            {% for key in registrationkeys %}
+                <th>{{key}}</th>
+            {% endfor %}
+        </tr>
+            {% for registration in registrationdata %}
+                <tr>
+                    {% for key in registrationkeys %}
+                        <td class="column-left">{{registration[key]}}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+    </table>
+
+{% endblock %}
